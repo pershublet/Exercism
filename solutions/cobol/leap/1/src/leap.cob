@@ -1,0 +1,23 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. LEAP IS INITIAL.
+      
+       ENVIRONMENT DIVISION.
+      
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+          77 WS-YEAR PIC 9(4) COMP-5.
+          77 WS-RESULT PIC 9.
+      
+       PROCEDURE DIVISION.
+       LEAP.
+         MOVE 0 TO WS-RESULT.
+      
+         IF FUNCTION MOD(WS-YEAR, 400) IS EQUAL TO 0 THEN
+           MOVE 1 TO WS-RESULT
+         ELSE
+           IF FUNCTION MOD(WS-YEAR, 100) IS NOT EQUAL TO 0 THEN
+             IF FUNCTION MOD(WS-YEAR, 4) IS EQUAL TO 0 THEN
+               MOVE 1 TO WS-RESULT
+         END-IF.
+       LEAP-EXIT.
+         EXIT.
