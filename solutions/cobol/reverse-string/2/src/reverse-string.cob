@@ -1,0 +1,12 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. reverse-string.
+      
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 WS-STRING PIC X(64).
+
+       PROCEDURE DIVISION.
+       REVERSE-STRING.
+      * Reverse a string and display result
+         MOVE FUNCTION REVERSE(FUNCTION TRIM(WS-STRING)) TO WS-STRING.
+       REVERSE-STRING-EXIT.
