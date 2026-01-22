@@ -1,0 +1,25 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. reverse-string.
+      
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 WS-STRING PIC X(64).
+       77 WS-CHAR PIC X.
+       77 WS-IDX-1 PIC 99.
+       77 WS-IDX-2 PIC 99.
+
+       PROCEDURE DIVISION.
+       REVERSE-STRING.
+      * Reverse a string and display result
+         MOVE 1 TO WS-IDX-1.
+         MOVE FUNCTION LENGTH(FUNCTION TRIM(WS-STRING, TRAILING)) TO WS-IDX-2.
+      
+         PERFORM UNTIL WS-IDX-1 IS GREATER THAN OR EQUAL TO WS-IDX-2
+           MOVE WS-STRING(WS-IDX-1:1) TO WS-CHAR
+           MOVE WS-STRING(WS-IDX-2:1) TO WS-STRING(WS-IDX-1:1)
+           MOVE WS-CHAR TO WS-STRING(WS-IDX-2:1)
+           ADD 1 TO WS-IDX-1
+           SUBTRACT 1 FROM WS-IDX-2
+         END-PERFORM.
+      
+       REVERSE-STRING-EXIT.
